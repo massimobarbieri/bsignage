@@ -7,7 +7,7 @@ Per iniziare serve un sistema GNU Linux con openbox e autologin su un utente.
 
 Creare l'utente kiosk-user che effettuerà il login automaticamente
 
- useradd -m kiosk-user
+    useradd -m kiosk-user
 
 Installare il software necessario
 
