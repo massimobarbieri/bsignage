@@ -39,4 +39,4 @@ Creare la cartella /etc/bsignage e mettere nella cartella il file bsignage.conf 
 Modificare il file /etc/bsignage/bsignage.conf aggiungendo la lista dei siti da mostrare
 Una volta modificata la lista riavviare il dm con
 
- sudo systemctl restart lightdm.service
+     sudo systemctl restart lightdm.service
