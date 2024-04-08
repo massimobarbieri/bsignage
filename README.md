@@ -15,21 +15,21 @@ Installare il software necessario
 
 Editare /etc/lightdm/lightdm.conf per abilitare autologin aggiungendo le righe seguenti
 
- autologin-user=kiosk-user
+    autologin-user=kiosk-user
 
- user-session=openbox
+    user-session=openbox
 
 Creare la directory con i file di configurazione
 
- mkdir -p /home/kiosk-user/.config/openbox
+    mkdir -p /home/kiosk-user/.config/openbox
 
 Creare il file /home/kiosk-user/.config/openbox/autostart con quanto segue
 
- xrandr -o left -r 60
+    xrandr -o left -r 60
 
- xset -dpms s off
+    xset -dpms s off
 
- /usr/sbin/bsignage
+    /usr/sbin/bsignage
 
 ## INSTALLAZIONE
 Scaricare da github il file bsignage e metterlo dentro /usr/sbin permettendo l'esecuzione all'utente kiosk-user
