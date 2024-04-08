@@ -17,6 +17,10 @@ while true; do
         url=$(echo "$item" | awk '{print $1}')
         sleep_duration=$(echo "$item" | awk '{print $2}')
 
+	#TODO: Eventualmente controllare se l'url funziona
+	# non è strettamente necessario poiché lo script non arresta l'esecuzione
+	# ma permetterebbe di evitare che lo script resti per n secondi su un sito inattivo
+
         # Mostra l'URL
         echo "Apro $url per $sleep_duration secondi"
 
