@@ -25,17 +25,26 @@ while true; do
         echo "Apro $url per $sleep_duration secondi"
 
         # Apri Chromium con l'URL specificato
-        chromium --no-first-run --disable --disable-translate --disable-infobars --disable-suggestions-service --disable-save-password-bubble --start-maximized --kiosk "$url" &
+#        chromium --no-first-run --disable --disable-translate --disable-infobars --disable-suggestions-service --disable-save-password-bubble --start-maximized --kiosk "$url" &
 	#chromium "$url" &
+	
+	# In questo modo non dovrebbe esserci bisogno di killare
+	# chromium e aprire una nuona istanza. Tuttavia occorre modificare
+	# Firefox per accettare i nuovi url sulla stessa pagina
+	# Su Firefox andare su about:config
+	# cercare l'opzione browser.link.open_newwindow e impostare 
+	# il valore a 1
+	# https://kb.mozillazine.org/Browser.link.open_newwindow
+	firefox -kiosk "$url" &
 
 	# Salva il PID di Chromium
-        chromium_pid=$!
+#        chromium_pid=$!
 
         # Aspetta per il numero di secondi specificato
         sleep "$sleep_duration"
 
         # Chiudi Chromium
-        kill "$chromium_pid"
+#        kill "$chromium_pid"
 
     done
 done
