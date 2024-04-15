@@ -41,6 +41,11 @@ Ulteriori informazioni sono disponibili qui: https://kb.mozillazine.org/Browser.
 Scaricare da github il file bsignage e metterlo dentro /usr/sbin permettendo l'esecuzione all'utente kiosk-user
 Creare la cartella /etc/bsignage e mettere nella cartella il file bsignage.conf scaricato da github
 
+## ALTRE COSE UTILI DA FARE SU FIREFOX
+* Abilitare i popup nei siti che dovete mostrare che necessitano di questa opzione
+* Accettare i cookies nei sisti che dovete mostrare
+* Se dovete mostrare video abilitare autoplay sui portali che decidete di usare
+
 ## USO
 Modificare il file /etc/bsignage/bsignage.conf aggiungendo la lista dei siti da mostrare
 Una volta modificata la lista riavviare il dm con
