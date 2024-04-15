@@ -25,6 +25,7 @@ while true; do
         echo "Apro $url per $sleep_duration secondi"
 
         # Apri Chromium con l'URL specificato
+	# La riga seguente è commentata se si usa firefox
 #        chromium --no-first-run --disable --disable-translate --disable-infobars --disable-suggestions-service --disable-save-password-bubble --start-maximized --kiosk "$url" &
 	#chromium "$url" &
 	
@@ -38,12 +39,15 @@ while true; do
 	firefox -kiosk "$url" &
 
 	# Salva il PID di Chromium
+	# La riga seguente è commentata poiché se si usa firefox non c'è
+	# bisogno di killarlo
 #        chromium_pid=$!
 
         # Aspetta per il numero di secondi specificato
         sleep "$sleep_duration"
 
         # Chiudi Chromium
+	# vedi commento sopra
 #        kill "$chromium_pid"
 
     done

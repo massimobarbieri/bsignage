@@ -11,7 +11,7 @@ Creare l'utente kiosk-user che effettuerà il login automaticamente
 
 Installare il software necessario
 
-    apt install sudo xorg chromium openbox lightdm
+    apt install sudo xorg firefox openbox lightdm
 
 Editare /etc/lightdm/lightdm.conf per abilitare autologin aggiungendo le righe seguenti
 
@@ -30,6 +30,12 @@ Creare il file /home/kiosk-user/.config/openbox/autostart con quanto segue
     xset -dpms s off
 
     /usr/sbin/bsignage
+
+Configurare firefox visitando la pagina about:config e settando la voce 
+
+   browser.link.open_newwindow = 1
+
+Ulteriori informazioni sono disponibili qui: https://kb.mozillazine.org/Browser.link.open_newwindow
 
 ## INSTALLAZIONE
 Scaricare da github il file bsignage e metterlo dentro /usr/sbin permettendo l'esecuzione all'utente kiosk-user
