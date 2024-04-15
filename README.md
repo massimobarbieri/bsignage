@@ -11,7 +11,7 @@ Creare l'utente kiosk-user che effettuerà il login automaticamente
 
 Installare il software necessario
 
-    apt install sudo xorg firefox openbox lightdm
+    apt install sudo xorg firefox-esr openbox lightdm
 
 Editare /etc/lightdm/lightdm.conf per abilitare autologin aggiungendo le righe seguenti
 
