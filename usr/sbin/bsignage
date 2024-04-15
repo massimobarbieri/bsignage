@@ -3,9 +3,9 @@
 # carica il file di configurazione che contiene gli url da mostrare
 source /etc/bsignage/bsignage.conf
 
-# Controlla se Chromium è installato
-if ! command -v chromium &> /dev/null; then
-    echo "Chromium non è installato. Assicurati di averlo installato prima di eseguire lo script."
+# Controlla se Firefox è installato
+if ! command -v firefox &> /dev/null; then
+    echo "Firefox non è installato. Assicurati di averlo installato prima di eseguire lo script."
     exit 1
 fi
 
