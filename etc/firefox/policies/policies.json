@@ -1,0 +1,10 @@
+{
+  "policies": {
+    "Preferences": {
+      "browser.link.open_newwindow": {
+        "Value": 1,
+        "Status": "locked"
+      }
+    }
+  }
+}
