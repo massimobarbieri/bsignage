@@ -25,10 +25,10 @@ L'installazione automatizza:
 * lock della preferenza Firefox `browser.link.open_newwindow = 1`
 
 ## ROTAZIONE DELLO SCHERMO
-La rotazione dello schermo può essere gestita su /etc/default/bsignage
+La rotazione dello schermo può essere gestita su `/etc/default/bsignage`
 
 ## URL DA PRESENTARE
-Possono essere gestiti su /etc/bsignage/bsegnage.conf utilizzando la sintassi indicata nel file
+Possono essere gestiti su `/etc/bsignage/bsegnage.conf`utilizzando la sintassi indicata nel file
 
 ## ALTRE COSE UTILI DA FARE SU FIREFOX
 * Abilitare i popup nei siti che dovete mostrare che necessitano di questa opzione
