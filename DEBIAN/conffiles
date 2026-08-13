@@ -1,3 +1,4 @@
 /etc/bsignage/bsignage.conf
 /etc/lightdm/lightdm.conf.d/90-bsignage.conf
 /etc/firefox/policies/policies.json
+/etc/default/bsignage

@@ -1,0 +1,3 @@
+# Rotazione schermo.
+# Valori ammessi: normal, left, right, inverted
+SCREEN_ROTATION="left"

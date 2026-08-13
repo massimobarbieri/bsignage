@@ -1,24 +1,26 @@
-#!/bin/bash
+#!/bin/sh
+
+SCREEN_ROTATION=normal
 
 # Legge il file di configurazione
-if [ -f /etc/bsignage/bsignage.conf ]; then
-	. /etc/bsignage/bsignage.conf
+if [ -f /etc/default/bsignage ]; then
+	. /etc/default/bsignage
 fi
 
 
 # Applica la rotazione dello schermo usando come default 'normal'
 # effettua anche un controllo sui valori ammessi
-case "${screen_rotation:-normal}" in
+case "${SCREEN_ROTATION:-normal}" in
 	normal|left|right|inverted)
 		(
 			for _ in 1 2 3 4 5 6 7 8 9 10; do
-				xrandr -o "${screen_rotation:-normal}" >> /tmp/bsignage-xrandr.log 2>&1 && break
+				xrandr -o "${SCREEN_ROTATION:-normal}" >> /tmp/bsignage-xrandr.log 2>&1 && break
 				sleep 1
 			done
 		) &
 		;;
 	*)
-		echo "Valore screen_rotation non valido: ${screen_rotation}" >> /tmp/bsignage-xrandr.log
+		echo "Valore SCREEN_ROTATION non valido: ${SCREEN_ROTATION}" >> /tmp/bsignage-xrandr.log
 		;;
 esac
 
