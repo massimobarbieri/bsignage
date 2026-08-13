@@ -1,0 +1,59 @@
+#!/bin/bash
+set -eu
+
+PACKAGE_USER="kiosk-user"
+PACKAGE_GROUP="kiosk-user"
+PACKAGE_HOME="/home/${PACKAGE_USER}"
+OPENBOX_DIR="${PACKAGE_HOME}/.config/openbox"
+AUTOSTART_FILE="${OPENBOX_DIR}/autostart"
+AUTOSTART_TEMPLATE="/usr/share/bsignage/openbox-autostart"
+LIGHTDM_CONF="/etc/lightdm/lightdm.conf.d/90-bsignage.conf"
+
+create_user() {
+    if id -u "${PACKAGE_USER}" >/dev/null 2>&1; then
+        return
+    fi
+
+    adduser \
+        --disabled-password \
+        --gecos "" \
+        --home "${PACKAGE_HOME}" \
+        "${PACKAGE_USER}"
+
+    for group in audio video input render plugdev; do
+        if getent group "${group}" >/dev/null 2>&1; then
+            adduser "${PACKAGE_USER}" "${group}"
+        fi
+    done
+}
+
+install_openbox_autostart() {
+    mkdir -p "${OPENBOX_DIR}"
+
+    if [ ! -f "${AUTOSTART_FILE}" ]; then
+        install -m 0644 "${AUTOSTART_TEMPLATE}" "${AUTOSTART_FILE}"
+    fi
+
+    chown -R "${PACKAGE_USER}:${PACKAGE_GROUP}" "${PACKAGE_HOME}/.config"
+}
+
+restart_lightdm_if_running() {
+    if command -v systemctl >/dev/null 2>&1 && systemctl is-active --quiet lightdm.service; then
+        systemctl restart lightdm.service || true
+    fi
+}
+
+case "${1}" in
+    configure)
+        create_user
+        install_openbox_autostart
+
+        if [ ! -f "${LIGHTDM_CONF}" ]; then
+            echo "Missing ${LIGHTDM_CONF}; autologin has not been configured." >&2
+        fi
+
+        restart_lightdm_if_running
+        ;;
+esac
+
+exit 0

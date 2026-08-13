@@ -1,0 +1,12 @@
+#!/bin/bash
+set -eu
+
+case "${1}" in
+    remove|deconfigure)
+        if command -v systemctl >/dev/null 2>&1 && systemctl is-active --quiet lightdm.service; then
+            systemctl restart lightdm.service || true
+        fi
+        ;;
+esac
+
+exit 0

@@ -3,43 +3,26 @@ Si tratta di uno script bash che mostra in sequeza diversi siti web per un numer
 definito di secondi
 
 ## PREREQUISITI
-Per iniziare serve un sistema GNU Linux con openbox e autologin su un utente.
-
-Creare l'utente kiosk-user che effettuerà il login automaticamente
-
-    useradd -m kiosk-user
-
-Installare il software necessario
-
-    apt install sudo xorg firefox-esr openbox lightdm
-
-Editare /etc/lightdm/lightdm.conf per abilitare autologin aggiungendo le righe seguenti
-
-    autologin-user=kiosk-user
-
-    user-session=openbox
-
-Creare la directory con i file di configurazione
-
-    mkdir -p /home/kiosk-user/.config/openbox
-
-Creare il file /home/kiosk-user/.config/openbox/autostart con quanto segue
-
-    xrandr -o left -r 60
-
-    xset -dpms s off
-
-    /usr/sbin/bsignage
-
-Configurare firefox visitando la pagina about:config e settando la voce 
-
-   browser.link.open_newwindow = 1
-
-Ulteriori informazioni sono disponibili qui: https://kb.mozillazine.org/Browser.link.open_newwindow
+Per costruire il pacchetto serve `dpkg-deb`.
 
 ## INSTALLAZIONE
-Scaricare da github il file bsignage e metterlo dentro /usr/sbin permettendo l'esecuzione all'utente kiosk-user
-Creare la cartella /etc/bsignage e mettere nella cartella il file bsignage.conf scaricato da github
+Costruire il pacchetto dalla root del repository:
+
+    bash scripts/build-deb.sh
+
+Il comando produce il file `.deb` in `dist/`.
+
+Installare il pacchetto:
+
+    sudo apt install ./dist/bsignage_1.0.0-1_all.deb
+
+L'installazione automatizza:
+
+* installazione dei file in `/usr/sbin`, `/etc/bsignage`, `/etc/lightdm/lightdm.conf.d` e `/etc/firefox/policies`
+* creazione dell'utente `kiosk-user` con home `/home/kiosk-user`
+* creazione di `/home/kiosk-user/.config/openbox/autostart`
+* configurazione dell'autologin di LightDM sulla sessione `openbox`
+* lock della preferenza Firefox `browser.link.open_newwindow = 1`
 
 ## ALTRE COSE UTILI DA FARE SU FIREFOX
 * Abilitare i popup nei siti che dovete mostrare che necessitano di questa opzione

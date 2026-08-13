@@ -3,7 +3,7 @@ Version: 1.0.0-1
 Section: misc
 Priority: optional
 Architecture: all
-Depends: bash, firefox-esr, openbox, lightdm, xorg, x11-xserver-utils
+Depends: adduser, bash, firefox-esr, lightdm, openbox, x11-xserver-utils, xorg
 Maintainer: Massimo Barbieri
 Description: Simple Firefox based digital signage kiosk
  Bsignage displays a sequence of websites in Firefox kiosk mode,
