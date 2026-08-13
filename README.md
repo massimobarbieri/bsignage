@@ -36,7 +36,7 @@ Possono essere gestiti su `/etc/bsignage/bsegnage.conf`utilizzando la sintassi i
 
 ## ALTRE COSE UTILI DA FARE SU FIREFOX
 * Abilitare i popup nei siti che dovete mostrare che necessitano di questa opzione
-* Accettare i cookies nei sisti che dovete mostrare
+* Accettare i cookies nei siti che dovete mostrare
 * Se dovete mostrare video abilitare autoplay sui portali che decidete di usare
 
 ## USO
