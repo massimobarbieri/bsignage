@@ -24,6 +24,6 @@ chmod 0755 \
     "${PACKAGE_ROOT}/usr/sbin/bsignage" \
     "${PACKAGE_ROOT}/usr/share/bsignage/openbox-autostart"
 
-dpkg-deb --build "${PACKAGE_ROOT}" "${OUTPUT_DIR}/${PACKAGE_NAME}_${VERSION}_all.deb"
+dpkg-deb --root-owner-group --build "${PACKAGE_ROOT}" "${OUTPUT_DIR}/${PACKAGE_NAME}_${VERSION}_all.deb"
 
 echo "Built ${OUTPUT_DIR}/${PACKAGE_NAME}_${VERSION}_all.deb"
