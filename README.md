@@ -5,14 +5,18 @@ definito di secondi
 ## PREREQUISITI
 Per costruire il pacchetto serve `dpkg-deb`.
 
-## INSTALLAZIONE
+## COMPILAZIONE
 Costruire il pacchetto dalla root del repository:
 
     bash scripts/build-deb.sh
 
 Il comando produce il file `.deb` in `dist/`.
 
-Installare il pacchetto:
+## INSTALLAZIONE
+
+Scarica il pacchetto **[bsignage_1.0.0-1_all.deb](https://github.com/massimobarbieri/bsignage/raw/refs/heads/dev-deb/dist/bsignage_1.0.0-1_all.deb)**
+
+Installa con il seguente comando:
 
     sudo apt install ./dist/bsignage_1.0.0-1_all.deb
 
